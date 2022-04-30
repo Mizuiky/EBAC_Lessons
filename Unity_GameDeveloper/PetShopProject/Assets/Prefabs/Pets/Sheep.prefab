@@ -632,7 +632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 406736}
   - component: {fileID: 9506702}
-  - component: {fileID: 8243288964833314171}
+  - component: {fileID: 4486613746897477895}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -677,7 +677,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8243288964833314171
+--- !u!114 &4486613746897477895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -686,10 +686,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 106736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3020acc2b19c86647b09cce35a2ba815, type: 3}
+  m_Script: {fileID: 11500000, guid: 94e4cda8df4beb4419de277afe9e61d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 106736}
+  data: {fileID: 11400000, guid: 23378c406d2aa7240aaa21452cc6179c, type: 2}
 --- !u!1 &106738
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChoosePetScript : MonoBehaviour
+public class SelectPet : MonoBehaviour
 {
     #region Public Field
 
-    public List<Pet> pets;
+    public List<PetBase> pets;
 
     public HUD hud;
 
@@ -15,15 +15,13 @@ public class ChoosePetScript : MonoBehaviour
 
     #region Private Fields
 
-    private Pet pet;
+    private PetBase _currentPet;
 
     #endregion
-
 
     void Start()
     {
         hud.Reset();
-        pet = new Pet();
     }
 
     void Update()
@@ -69,23 +67,26 @@ public class ChoosePetScript : MonoBehaviour
                 return;
         }
 
-        hud.SetText(pet);
+        hud.SetText(_currentPet);
     }
     public void SelectCat()
     {
-        pet.SetAttributes(Type.Cat, Status.Happy, 10, 8);
-        hud.SetHightight(HighPoint.left);
+        _currentPet = pets[0];
+        _currentPet.PetSound();
+        hud.SetHightight(_currentPet.data.hightlightPosition);
     }
 
     public void SelectSheep()
     {
-        pet.SetAttributes(Type.Sheep, Status.Sad, 4, 3);
-        hud.SetHightight(HighPoint.Middle);
+        _currentPet = pets[1];
+        _currentPet.PetSound();
+        hud.SetHightight(_currentPet.data.hightlightPosition);
     }
 
     public void SelectDuck()
     {
-        pet.SetAttributes(Type.Duck, Status.Sleepy, 8, 6);
-        hud.SetHightight(HighPoint.Right);
+        _currentPet = pets[2];
+        _currentPet.PetSound();
+        hud.SetHightight(_currentPet.data.hightlightPosition);
     }   
 }
