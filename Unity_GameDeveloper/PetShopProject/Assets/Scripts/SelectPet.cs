@@ -29,7 +29,7 @@ public class SelectPet : MonoBehaviour
         if(Input.anyKeyDown)
         {
             GetInput();
-        }        
+        }      
     }
 
     private void GetInput()
