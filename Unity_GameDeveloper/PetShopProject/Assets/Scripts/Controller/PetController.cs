@@ -3,13 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectPet : MonoBehaviour
+public class PetController : MonoBehaviour
 {
     #region Public Field
 
     public List<PetBase> pets;
-
-    public HUD hud;
 
     #endregion
 
@@ -17,11 +15,13 @@ public class SelectPet : MonoBehaviour
 
     private PetBase _currentPet;
 
+    private UIController uiController;
+
     #endregion
 
     void Start()
     {
-        hud.Reset();
+        uiController = FindObjectOfType<UIController>();
     }
 
     void Update()
@@ -63,30 +63,30 @@ public class SelectPet : MonoBehaviour
                 break;
 
             default:
-                hud.SetWarningMessage();
+                uiController.ShowWarning();
                 return;
         }
 
-        hud.SetText(_currentPet);
+        uiController.UpdateText(_currentPet);
     }
     public void SelectCat()
     {
         _currentPet = pets[0];
         _currentPet.PetSound();
-        hud.SetHightight(_currentPet.data.hightlightPosition);
+        uiController.SetHighlight(_currentPet.data.hightlightPosition);
     }
 
     public void SelectSheep()
     {
         _currentPet = pets[1];
         _currentPet.PetSound();
-        hud.SetHightight(_currentPet.data.hightlightPosition);
+        uiController.SetHighlight(_currentPet.data.hightlightPosition);
     }
 
     public void SelectDuck()
     {
         _currentPet = pets[2];
         _currentPet.PetSound();
-        hud.SetHightight(_currentPet.data.hightlightPosition);
+        uiController.SetHighlight(_currentPet.data.hightlightPosition);
     }   
 }

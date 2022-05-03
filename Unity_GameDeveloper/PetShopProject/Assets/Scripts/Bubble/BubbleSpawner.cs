@@ -15,7 +15,7 @@ public class BubbleSpawner : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButtonUp(0) && (Time.timeScale == 1f))
         {
             SpawnBubble();
         }

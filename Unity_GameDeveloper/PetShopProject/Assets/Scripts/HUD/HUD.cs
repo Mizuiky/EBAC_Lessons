@@ -27,12 +27,12 @@ public class HUD : MonoBehaviour
         hungry.text = pet.Hungry.ToString();
     }
 
-    public void SetWarningMessage()
+    public void ShowKeyWarning()
     {    
-        StartCoroutine(Warning());            
+        StartCoroutine(KeyWarning());            
     }
 
-    private IEnumerator Warning()
+    private IEnumerator KeyWarning()
     {
         warning.text = "Couldn't select pet, please press A, S or D";
 
@@ -55,11 +55,11 @@ public class HUD : MonoBehaviour
 
         #region Bars
 
-        SetHightight(HighPoint.None);
+        ShowHighlight(HighPoint.None);
         #endregion
     }
 
-    public void SetHightight(HighPoint hightLight)
+    public void ShowHighlight(HighPoint hightLight)
     {
         foreach(Bar bar in highlightBar)
         {
@@ -74,17 +74,17 @@ public class HUD : MonoBehaviour
     }
 }
 
-public enum HighPoint
-{
-    None,
-    left,
-    Middle,
-    Right
-}
+    public enum HighPoint
+    {
+        None,
+        left,
+        Middle,
+        Right
+    }
 
-[System.Serializable]
-public class Bar
-{
-    public HighPoint highlight;
-    public GameObject bar;
-}
+    [System.Serializable]
+    public class Bar
+    {
+        public HighPoint highlight;
+        public GameObject bar;
+    }
