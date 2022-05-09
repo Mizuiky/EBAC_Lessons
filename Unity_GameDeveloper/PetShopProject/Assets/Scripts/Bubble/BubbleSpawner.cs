@@ -33,7 +33,7 @@ public class BubbleSpawner : MonoBehaviour
     {
         if(Input.GetMouseButtonUp(0) && (Time.timeScale == 1f))
         {       
-            if(CanSpawn(Input.mousePosition))
+            if(CheckIfCanSpawn(Input.mousePosition))
             {
                 SpawnBubble();
             }          
@@ -58,7 +58,7 @@ public class BubbleSpawner : MonoBehaviour
         return positions[index].position;
     }
 
-    private bool CanSpawn(Vector3 mousePosition)
+    private bool CheckIfCanSpawn(Vector3 mousePosition)
     {
         //Code to check if the clicking is in a layer different from FoodView to spawn the bubbles
 
@@ -77,7 +77,7 @@ public class BubbleSpawner : MonoBehaviour
         //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
         foreach (RaycastResult result in results)
         {
-            if (result.gameObject.CompareTag("FoodView"))
+            if (result.gameObject.CompareTag("FoodBox"))
             {
                 return false;
             }

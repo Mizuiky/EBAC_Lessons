@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Game Manager
-  - FoodView
+  - FoodBox
   layers:
   - Default
   - TransparentFX
