@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private UIController uiController;
+    private UIController _uiController;
 
     void Start()
     {

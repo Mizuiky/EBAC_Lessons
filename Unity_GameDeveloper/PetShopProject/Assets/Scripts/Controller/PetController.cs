@@ -15,13 +15,13 @@ public class PetController : MonoBehaviour
 
     private PetBase _currentPet;
 
-    private UIController uiController;
+    private UIController _uiController;
 
     #endregion
 
     void Start()
     {
-        uiController = FindObjectOfType<UIController>();
+        _uiController = FindObjectOfType<UIController>();
     }
 
     void Update()
@@ -63,30 +63,30 @@ public class PetController : MonoBehaviour
                 break;
 
             default:
-                uiController.ShowWarning();
+                _uiController.ShowWarning();
                 return;
         }
 
-        uiController.UpdateText(_currentPet);
+        _uiController.UpdateText(_currentPet);
     }
     public void SelectCat()
     {
         _currentPet = pets[0];
         _currentPet.PetSound();
-        uiController.SetHighlight(_currentPet.data.hightlightPosition);
+        _uiController.SetHighlight(_currentPet.data.hightlightPosition);
     }
 
     public void SelectSheep()
     {
         _currentPet = pets[1];
         _currentPet.PetSound();
-        uiController.SetHighlight(_currentPet.data.hightlightPosition);
+        _uiController.SetHighlight(_currentPet.data.hightlightPosition);
     }
 
     public void SelectDuck()
     {
         _currentPet = pets[2];
         _currentPet.PetSound();
-        uiController.SetHighlight(_currentPet.data.hightlightPosition);
+        _uiController.SetHighlight(_currentPet.data.hightlightPosition);
     }   
 }

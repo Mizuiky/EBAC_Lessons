@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Bubble : MonoBehaviour, IActivate
 {
-    private float timeToDesapear = 1f;
+    private float _timeToDesapear = 1f;
 
     [SerializeField]
-    private Sprite [] sprites;
+    private Sprite [] _sprites;
 
     public void Activate()
     {
@@ -15,7 +15,7 @@ public class Bubble : MonoBehaviour, IActivate
 
         this.gameObject.SetActive(true);       
 
-        Invoke("Deactivate", timeToDesapear);
+        Invoke("Deactivate", _timeToDesapear);
     }
 
     public void Deactivate()
@@ -30,8 +30,8 @@ public class Bubble : MonoBehaviour, IActivate
 
     public Sprite GetRandomBubble()
     {
-        int index = Random.Range(0, sprites.Length);
+        int index = Random.Range(0, _sprites.Length);
 
-        return sprites[index];
+        return _sprites[index];
     }
 }

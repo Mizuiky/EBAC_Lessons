@@ -6,11 +6,11 @@ public class BubbleSpawner : MonoBehaviour
 {
     public List<Transform> positions;
 
-    private PoolManager poolManager;
+    private PoolManager _poolManager;
 
     public void Start()
     {
-        poolManager = FindObjectOfType<PoolManager>();
+        _poolManager = FindObjectOfType<PoolManager>();
     }
 
     private void Update()
@@ -22,7 +22,7 @@ public class BubbleSpawner : MonoBehaviour
     }
     public void SpawnBubble()
     {
-        var bubbles = poolManager.GetPoolledObjects();
+        var bubbles = _poolManager.GetPoolledObjects();
 
         if(bubbles != null)
         {

@@ -7,55 +7,55 @@ public class UIController : MonoBehaviour
     #region Private Fields
 
     [SerializeField]
-    private HUD hud;
+    private HUD _hud;
 
     [SerializeField]
-    private GameObject pauseScreen;
+    private GameObject _pauseScreen;
 
-    private GameManager gameManager;
+    private GameManager _gameManager;
 
     #endregion
 
     private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        _gameManager = FindObjectOfType<GameManager>();
 
-        hud.Reset();
+        _hud.Reset();
 
-        pauseScreen.SetActive(false);
+        _pauseScreen.SetActive(false);
     }
 
     public void UpdateText(IPet petData)
     {
-        hud.SetText(petData);
+        _hud.SetText(petData);
     }
 
     public void ShowWarning()
     {
-        hud.ShowKeyWarning();
+        _hud.ShowKeyWarning();
     }
 
     public void ResetHUD()
     {
-        hud.Reset();
+        _hud.Reset();
     }
 
     public void SetHighlight(HighPoint highPoint)
     {
-        hud.ShowHighlight(highPoint);
+        _hud.ShowHighlight(highPoint);
     }
 
     public void SetPauseScreenVisibility()
     {
-        if(!pauseScreen.activeInHierarchy)
+        if(!_pauseScreen.activeInHierarchy)
         {
-            gameManager.PauseTime(true);
-            pauseScreen.SetActive(true);
+            _gameManager.PauseTime(true);
+            _pauseScreen.SetActive(true);
         }
         else
         {
-            gameManager.PauseTime(false);
-            pauseScreen.SetActive(false);
+            _gameManager.PauseTime(false);
+            _pauseScreen.SetActive(false);
         }
     }
 }
