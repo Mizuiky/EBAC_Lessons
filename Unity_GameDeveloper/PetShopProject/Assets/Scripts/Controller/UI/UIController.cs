@@ -12,15 +12,20 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private GameObject _pauseScreen;
 
+    [SerializeField]
+    private GameObject _mainMenuScreen;
+
     private GameManager _gameManager;
 
     #endregion
 
     private void Start()
     {
-        _gameManager = FindObjectOfType<GameManager>();
+        _gameManager =FindObjectOfType<GameManager>();
 
         _hud.Reset();
+
+        _mainMenuScreen.SetActive(true);
 
         _pauseScreen.SetActive(false);
     }
@@ -46,6 +51,7 @@ public class UIController : MonoBehaviour
     }
 
     public void SetPauseScreenVisibility()
+
     {
         if(!_pauseScreen.activeInHierarchy)
         {
@@ -56,6 +62,20 @@ public class UIController : MonoBehaviour
         {
             _gameManager.PauseTime(false);
             _pauseScreen.SetActive(false);
+        }
+    }
+
+    public void SetMainMenuScreenVisibility()
+    {
+        if (_mainMenuScreen.activeInHierarchy)
+        {    
+             _gameManager.PauseTime(false);
+            _mainMenuScreen.SetActive(false);
+        }
+        else
+        {
+            _gameManager.PauseTime(true);
+            _mainMenuScreen.SetActive(true);
         }
     }
 }
